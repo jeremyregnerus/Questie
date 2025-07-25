@@ -76,9 +76,6 @@ function QuestieQuestFixes:Load()
         [30] = {
             [questKeys.extraObjectives] = {{{[zoneIDs.MOONGLADE]={{36.5,41.7}}}, Questie.ICON_TYPE_EVENT, l10n("Combine the Pendant halves at the Shrine of Remulos.")}},
         },
-        [32] = { -- Rise of the Silithid
-            [questKeys.nextQuestInChain] = 4494,
-        },
         [33] = {
             [questKeys.preQuestSingle] = {},
         },
@@ -163,6 +160,7 @@ function QuestieQuestFixes:Load()
         },
         [287] = {
             [questKeys.preQuestSingle] = {},
+            [questKeys.breadcrumbs] = {420},
         },
         [308] = {
             [questKeys.exclusiveTo] = {311}, -- distracting jarven can't be completed once you get the followup
@@ -185,8 +183,13 @@ function QuestieQuestFixes:Load()
         [353] = {
             [questKeys.preQuestSingle] = {}, -- #2364
         },
+        [363] = {
+            [questKeys.nextQuestInChain] = 364,
+            [questKeys.breadcrumbForQuestId] = 364, -- #882
+        },
         [364] = {
             [questKeys.preQuestSingle] = {}, -- #882
+            [questKeys.breadcrumbs] = {363},
         },
         [367] = {
             [questKeys.requiredRaces] = raceIDs.ALL_HORDE, -- #888
@@ -215,16 +218,19 @@ function QuestieQuestFixes:Load()
             [questKeys.exclusiveTo] = {413}, -- cant complete rejolds new brew if you do shimmer stout (see issue 567)
         },
         [420] = {
-            [questKeys.exclusiveTo] = {287}, -- senir's observations part 2 becomes unavailable if you have completed frostmane hold
+            [questKeys.nextQuestInChain] = 287,
+            [questKeys.breadcrumbForQuestId] = 287,
         },
         [427] = {
             [questKeys.preQuestSingle] = {},
         },
         [428] = {
-            [questKeys.exclusiveTo] = {429}, -- lost deathstalkers breadcrumb
+            [questKeys.nextQuestInChain] = 429,
+            [questKeys.breadcrumbForQuestId] = 429,
         },
         [429] = {
             [questKeys.preQuestSingle] = {}, -- #1843
+            [questKeys.breadcrumbs] = {428},
         },
         [431] = { -- candles of beckoning
             [questKeys.preQuestSingle] = {366}, -- #638
@@ -250,6 +256,7 @@ function QuestieQuestFixes:Load()
         },
         [455] = {
             [questKeys.preQuestSingle] = {}, -- #1858
+            [questKeys.breadcrumbs] = {468},
         },
         [463] = {
             [questKeys.exclusiveTo] = {276}, --greenwarden cant be completed if you have trampling paws
@@ -265,7 +272,8 @@ function QuestieQuestFixes:Load()
             [questKeys.exclusiveTo] = {466}, -- #2066
         },
         [468] = {
-            [questKeys.exclusiveTo] = {455}, -- #1858
+            [questKeys.nextQuestInChain] = 455, -- #1858
+            [questKeys.breadcrumbForQuestId] = 455,
         },
         [473] = {
             [questKeys.preQuestSingle] = {455}, -- #809
@@ -413,6 +421,10 @@ function QuestieQuestFixes:Load()
         [769] = {
             [questKeys.preQuestSingle] = {},
             [questKeys.requiredSkill] = {165,10},
+        },
+        [788] = {
+            [questKeys.preQuestSingle] = {},
+            [questKeys.breadcrumbs] = {4641}, -- #1956
         },
         [793] = {
             [questKeys.requiredSourceItems] = {4843,4844,4845},
@@ -1660,7 +1672,7 @@ function QuestieQuestFixes:Load()
         },
         [4641] = {
             [questKeys.requiredRaces] = raceIDs.ALL_HORDE, -- #877
-            [questKeys.exclusiveTo] = {788}, -- #1956
+            [questKeys.breadcrumbForQuestId] = 788, -- #1956
         },
         [4726] = {
             [questKeys.extraObjectives] = {{nil, Questie.ICON_TYPE_INTERACT, l10n("Use the Draco-Incarcinatrix 900 and defeat the dragonkin."), 0, {{"monster",7047},{"monster",7048}},{"monster",7049}}},
@@ -2015,6 +2027,7 @@ function QuestieQuestFixes:Load()
         },
         [5676] = {
             [questKeys.exclusiveTo] = {5677,5678},
+            [questKeys.objectivesText] = {},
         },
         [5677] = {
             [questKeys.exclusiveTo] = {5676,5678},
@@ -2030,6 +2043,9 @@ function QuestieQuestFixes:Load()
             [questKeys.objectivesText] = {"Speak to High Priestess Laurena in Stormwind."},
             [questKeys.exclusiveTo] = {5676,5677},
             [questKeys.zoneOrSort] = sortKeys.PRIEST,
+        },
+        [5679] = {
+            [questKeys.objectivesText] = {},
         },
         [5713] = {
             [questKeys.triggerEnd] = {"Protect Aynasha", {[zoneIDs.DARKSHORE]={{45.87,90.42}}}},
@@ -2308,10 +2324,12 @@ function QuestieQuestFixes:Load()
             [questKeys.triggerEnd] = {"Take Silverwing Outpost.", {[zoneIDs.ASHENVALE]={{64.65,75.35}}}},
         },
         [6562] = {
-            [questKeys.exclusiveTo] = {6563}, -- #1826
+            [questKeys.breadcrumbForQuestId] = 6563,
+            [questKeys.nextQuestInChain] = 6563, -- #1826
         },
         [6563] = {
             [questKeys.preQuestSingle] = {}, -- #1826
+            [questKeys.breadcrumbs] = {6562},
         },
         [6566] = {
             [questKeys.triggerEnd] = {"Thrall's Tale", {[zoneIDs.ORGRIMMAR]={{31.78,37.81}}}},
@@ -2871,21 +2889,27 @@ function QuestieQuestFixes:Load()
         },
         [8166] = {
             [questKeys.specialFlags] = 0,
+            [questKeys.requiredMaxLevel] = 49,
         },
         [8167] = {
             [questKeys.specialFlags] = 0,
+            [questKeys.requiredMaxLevel] = 39,
         },
         [8168] = {
             [questKeys.specialFlags] = 0,
+            [questKeys.requiredMaxLevel] = 29,
         },
         [8169] = {
             [questKeys.specialFlags] = 0,
+            [questKeys.requiredMaxLevel] = 49,
         },
         [8170] = {
             [questKeys.specialFlags] = 0,
+            [questKeys.requiredMaxLevel] = 39,
         },
         [8171] = {
             [questKeys.specialFlags] = 0,
+            [questKeys.requiredMaxLevel] = 29,
         },
         [8181] = {
             [questKeys.zoneOrSort] = zoneIDs.ZUL_GURUB,
